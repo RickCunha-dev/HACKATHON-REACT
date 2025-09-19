@@ -378,6 +378,7 @@ body.menu-open {
     margin: 0 auto;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     flex-wrap: wrap;
     gap: 30px;
 }
@@ -422,33 +423,29 @@ body.menu-open {
 
 .social-icons {
     display: flex;
-    gap: 15px;
+    gap: 10px;
 }
 
 .social-icon {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
+    display: inline-block;
+    transition: transform 0.3s ease;
 }
 
 .social-icon:hover {
-    background-color: var(--cor-vermelho);
     transform: scale(1.1);
 }
 
 .social-icon img {
-    width: 20px;
-    height: 20px;
-    /* filter: brightness(0) invert(1); */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    margin-top: 5px;
 }
 
 .footer-bottom {
     text-align: center;
+    margin-top: 30px;
     padding-top: 20px;
     border-top: 1px solid #444;
 }
