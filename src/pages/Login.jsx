@@ -1,0 +1,126 @@
+import { useState } from 'react';
+import styles from './Login.module.css';
+
+export default function Login({ onNavigate }) {
+  const [formData, setFormData] = useState({
+    cpf: '',
+    senha: ''
+  });
+  const [showPassword, setShowPassword] = useState(false);
+
+  // Função para máscara de CPF/CNPJ
+  const formatCpfCnpj = (value) => {
+    const cleanValue = value.replace(/\D/g, '');
+    
+    if (cleanValue.length <= 11) { // CPF
+      return cleanValue
+        .replace(/(\d{3})(\d)/, "$1.$2")
+        .replace(/(\d{3})(\d)/, "$1.$2")
+        .replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+    } else { // CNPJ
+      return cleanValue
+        .replace(/^(\d{2})(\d)/, "$1.$2")
+        .replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3")
+        .replace(/\.(\d{3})(\d)/, ".$1/$2")
+        .replace(/(\d{4})(\d)/, "$1-$2");
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    
+    if (name === 'cpf') {
+      const formattedValue = formatCpfCnpj(value);
+      setFormData(prev => ({ ...prev, [name]: formattedValue }));
+    } else {
+      setFormData(prev => ({ ...prev, [name]: value }));
+    }
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Aqui você implementaria a lógica de login
+    console.log('Login data:', formData);
+    alert('Login realizado com sucesso!');
+    onNavigate('home');
+  };
+
+  return (
+    <div className={styles.loginPage}>
+      <header className={styles.logo}>
+        <a href="#" onClick={(e) => { e.preventDefault(); onNavigate('home'); }}>
+          <img src="/images/Logo padrão.png" alt="logo-infinity" className={styles['logo-in']} />
+        </a>
+      </header>
+
+      <div className={styles.container}>
+        <div className={styles.formulario}>
+          <div className={styles['titulo-form']}>
+            <h1>Conecte-se</h1>
+          </div>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="cpf" className={styles.label}>Login (CPF/CNPJ)</label><br />
+            <input
+              id="cpf"
+              name="cpf"
+              type="tel"
+              maxLength="18"
+              placeholder=""
+              value={formData.cpf}
+              onChange={handleInputChange}
+              required
+            /><br /><br />
+
+            <label htmlFor="senha" className={styles.label}>Senha</label><br />
+            <div className={styles['input-olho']}>
+              <input
+                id="senha"
+                name="senha"
+                type={showPassword ? 'text' : 'password'}
+                value={formData.senha}
+                onChange={handleInputChange}
+                required
+              />
+              <img
+                src={showPassword ? "/icons/olhoaberto.png" : "/icons/olhofechado.png"}
+                alt="Mostrar senha"
+                className={styles.olhinho}
+                onClick={togglePasswordVisibility}
+              />
+            </div><br /><br />
+
+            <div className={styles['option-links']}>
+              <a href="#" onClick={(e) => { e.preventDefault(); onNavigate('esqueciSenha'); }}>
+                Esqueceu a senha?
+              </a>
+              <a href="#" onClick={(e) => { e.preventDefault(); onNavigate('cadastro'); }}>
+                Cadastre-se
+              </a>
+            </div>
+
+            <div className={styles.btnForm}>
+              <button type="submit" className={styles['btn-login']}>Login</button>
+            </div>
+          </form>
+
+          <div className={styles.separador}>
+            <span className={styles.ou}>ou</span>
+          </div>
+
+          <div className={styles['botoes-redes-socias']}>
+            <a href="#" className={styles.google} onClick={(e) => { e.preventDefault(); alert('Login com Google em desenvolvimento'); }}>
+              <img src="/icons/search.png" alt="Entrar com Google" />
+            </a>
+            <a href="#" className={styles.appel} onClick={(e) => { e.preventDefault(); alert('Login com Apple em desenvolvimento'); }}>
+              <img src="/icons/apple-logo.png" alt="Entrar com Apple" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
