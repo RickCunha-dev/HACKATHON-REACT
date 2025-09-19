@@ -28,6 +28,23 @@ body {
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
+  /* Variáveis globais para todas as páginas */
+  --body-bg: #000;
+  --text-color: #fff;
+  --logo-border: #E53935;
+  --logo-box-shadow: #E53935;
+  --logo-neon-alt: #af1103;
+  --logo-neon-light: #ff6f61;
+  --input-bg: #000;
+  --input-border: #444;
+  --input-focus-border: #E53935;
+  --input-focus-bg: #111;
+  --btn-bg: #E53935;
+  --btn-border: #E53935;
+  --btn-neon-alt: #ff6f61;
+  --h1-underline: #E53935;
+  --h1-underline-shadow: red;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

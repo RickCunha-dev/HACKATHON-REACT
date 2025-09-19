@@ -1,24 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
-:root {
-    --body-bg: #000;
-    --text-color: #fff;
-    --logo-border: #E53935;
-    --logo-box-shadow: #E53935;
-    --logo-neon-alt: #af1103;
-    --logo-neon-light: #ff6f61;
-    --input-bg: #000;
-    --input-border: #444;
-    --input-focus-border: #E53935;
-    --input-focus-bg: #111;
-    --btn-bg: #E53935;
-    --btn-border: #E53935;
-    --btn-neon-alt: #ff6f61;
-    --h1-underline: #E53935;
-    --h1-underline-shadow: red;
-}
-
 /* Reset básico */
 * {
     margin: 0;
