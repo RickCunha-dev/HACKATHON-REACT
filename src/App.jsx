@@ -8,6 +8,7 @@ import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Cadastro from './pages/Cadastro';
 import EmailEnviado from './pages/EmailEnviado';
+import EsqueciSenha from './pages/EsqueciSenha';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
@@ -22,6 +23,7 @@ function App() {
       {currentPage === 'login' && <Login onNavigate={setCurrentPage} />}
       {currentPage === 'cadastro' && <Cadastro onNavigate={setCurrentPage} />}
       {currentPage === 'emailEnviado' && <EmailEnviado onNavigate={setCurrentPage} />}
+      {currentPage === 'esqueciSenha' && <EsqueciSenha onNavigate={setCurrentPage} />}
     </div>
   )
 }

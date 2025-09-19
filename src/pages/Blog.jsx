@@ -3,9 +3,6 @@ import styles from './Blog.module.css';
 
 // Importações das imagens
 import logoImg from '../images/Logo padrão.png';
-import instagramIcon from '../icons/instagram.png';
-import whatsappIcon from '../icons/whatsapp.png';
-import linkedinIcon from '../icons/linkedin.png';
 
 const Blog = ({ onNavigate }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -187,13 +184,13 @@ const Blog = ({ onNavigate }) => {
               <span>Rede social</span>
               <div className={styles['social-icons']}>
                 <a href="https://www.instagram.com/infinity.school/" className={styles['social-icon']}>
-                  <img src={instagramIcon} alt="Instagram" />
+                  <img src="/icons/instagram.png" alt="Instagram" onError={(e) => console.log('Erro ao carregar Instagram:', e)} />
                 </a>
-                <a href="#" className={styles['social-icon']}>
-                  <img src={whatsappIcon} alt="WhatsApp" />
+                <a href="https://wa.me/11999999999" className={styles['social-icon']}>
+                  <img src="/icons/whatsapp.png" alt="WhatsApp" onError={(e) => console.log('Erro ao carregar WhatsApp:', e)} />
                 </a>
                 <a href="https://www.linkedin.com/company/infinityschool/posts/?feedView=all" className={styles['social-icon']}>
-                  <img src={linkedinIcon} alt="LinkedIn" />
+                  <img src="/icons/linkedin.png" alt="LinkedIn" onError={(e) => console.log('Erro ao carregar LinkedIn:', e)} />
                 </a>
               </div>
             </div>
