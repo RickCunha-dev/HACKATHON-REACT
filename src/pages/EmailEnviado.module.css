@@ -175,6 +175,6 @@
 @media (max-width: 600px) {
     .header { height: var(--header-height-sm); }
     .texto { padding: var(--texto-padding-sm); }
-    .texto .ok-btn { width: 100%; max-width: 100%; font-size: var(--ok-btn-font-size-sm); padding: var(--ok-btn-padding-sm); border-radius: var(--ok-btn-border-radius-sm); }
+    .texto .ok-btn { width: 50%; max-width: 100%; font-size: var(--ok-btn-font-size-sm); padding: var(--ok-btn-padding-sm); border-radius: var(--ok-btn-border-radius-sm); }
     .texto .acesse { font-size: var(--texto-acesse-font-size-sm); }
 }
